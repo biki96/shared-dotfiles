@@ -22,6 +22,13 @@ compinit
 # Case-insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+# --- Plugins ---
+# Autosuggestions (gray suggestions as you type)
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Syntax highlighting (colors commands in real-time)
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # --- fzf integration ---
 # Interactive fuzzy search for files/commands/history
 source <(fzf --zsh)
