@@ -1,0 +1,11 @@
+# Ghostty config for small monitor (DP-1) with larger font
+# theme = catppuccin-mocha
+# theme = GruvboxDark
+# font-family = Meslo LGS Nerd Font Mono
+# font-family = CaskaydiaMono Nerd Font
+# font-family = CaskaydiaCove Nerd Font
+font-size = 24
+background-opacity = 0.95
+gtk-titlebar = false
+# custom-shader = /home/chris/bloom.glsl
+#custom-shader = /home/chris/crt.glsl
