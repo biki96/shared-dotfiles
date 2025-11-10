@@ -53,6 +53,37 @@ source <(fzf --zsh)
 # Keep only what you actually use
 export PATH="$HOME/.local/bin:$HOME/.local/share/omarchy/bin:$PATH"
 
+# --- LS_COLORS (dynamic theme integration) ---
+# Automatically sync ls/eza colors with omarchy theme
+if command -v vivid &>/dev/null && command -v omarchy-theme-current &>/dev/null; then
+    OMARCHY_THEME=$(omarchy-theme-current 2>/dev/null)
+
+    case "$OMARCHY_THEME" in
+        "Catppuccin"|"catppuccin")
+            export LS_COLORS="$(vivid generate catppuccin-mocha)"
+            ;;
+        "Catppuccin-latte"|"catppuccin-latte")
+            export LS_COLORS="$(vivid generate catppuccin-latte)"
+            ;;
+        "Gruvbox"|"gruvbox")
+            export LS_COLORS="$(vivid generate gruvbox-dark)"
+            ;;
+        "Nord"|"nord")
+            export LS_COLORS="$(vivid generate nord)"
+            ;;
+        "Tokyo-night"|"tokyo-night")
+            export LS_COLORS="$(vivid generate tokyonight-night)"
+            ;;
+        "Rose-pine"|"rose-pine")
+            export LS_COLORS="$(vivid generate rosepine)"
+            ;;
+        *)
+            # Fallback to catppuccin-mocha if theme not recognized
+            export LS_COLORS="$(vivid generate catppuccin-mocha)"
+            ;;
+    esac
+fi
+
 # --- Tmux helper function ---
 new_tmux () {
   local session_dir
