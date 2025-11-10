@@ -105,3 +105,9 @@ alias uvsr='uv sync --refresh'
 alias uvsu='uv sync --upgrade'
 alias uvup='uv self update'
 alias uvv='uv venv'
+
+# eza (modern ls/tree replacement) aliases
+alias ls='eza --icons --git'
+alias ll='eza --long --icons --git'
+alias la='eza --long --all --icons --git'
+alias tree='eza --tree --level=2 --icons'
