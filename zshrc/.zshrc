@@ -16,6 +16,9 @@ setopt hist_ignore_all_dups   # Skip duplicate entries
 setopt hist_reduce_blanks     # Trim extra spaces
 
 # --- Completions (needed before fzf integration) ---
+# Load additional completions
+fpath=(/usr/share/zsh/site-functions $fpath)
+
 autoload -Uz compinit
 compinit
 
@@ -28,6 +31,13 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Syntax highlighting (colors commands in real-time)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# History substring search (search history with up/down arrows)
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# Bind arrow keys for history substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # --- fzf integration ---
 # Interactive fuzzy search for files/commands/history
@@ -70,3 +80,6 @@ new_tmux () {
 
 alias tm='new_tmux'
 
+# --- Aliases ---
+# Better cat with syntax highlighting
+alias cat='bat'
