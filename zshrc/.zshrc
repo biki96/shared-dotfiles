@@ -19,6 +19,9 @@ setopt hist_reduce_blanks     # Trim extra spaces
 autoload -Uz compinit
 compinit
 
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # --- fzf integration ---
 # Interactive fuzzy search for files/commands/history
 source <(fzf --zsh)
