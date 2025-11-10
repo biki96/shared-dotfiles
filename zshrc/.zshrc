@@ -2,6 +2,16 @@
 eval "$(starship init zsh)"   # Modern, fast prompt
 eval "$(zoxide init zsh)"     # Smarter 'cd' navigation
 
+# --- Runtime manager ---
+# mise (polyglot runtime manager - replaces asdf/nvm/rbenv)
+if command -v mise &>/dev/null; then
+    # Configure mise to use uv for Python
+    export MISE_PYTHON_COMPILE=0
+    export MISE_PYTHON_DEFAULT_PACKAGES_FILE="$HOME/.default-python-packages"
+
+    eval "$(mise activate zsh)"
+fi
+
 # --- Editor ---
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
