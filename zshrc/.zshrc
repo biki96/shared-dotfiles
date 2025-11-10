@@ -39,6 +39,12 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# --- uv completions ---
+# Generate completions for uv (if installed)
+if command -v uv &>/dev/null; then
+    eval "$(uv generate-shell-completion zsh)"
+fi
+
 # --- fzf integration ---
 # Interactive fuzzy search for files/commands/history
 source <(fzf --zsh)
@@ -83,3 +89,19 @@ alias tm='new_tmux'
 # --- Aliases ---
 # Better cat with syntax highlighting
 alias cat='bat'
+
+# uv (Python package manager) aliases
+alias uva='uv add'
+alias uvexp='uv export --format requirements-txt --no-hashes --output-file requirements.txt'
+alias uvl='uv lock'
+alias uvlr='uv lock --refresh'
+alias uvlu='uv lock --upgrade'
+alias uvp='uv pip'
+alias uvpy='uv python'
+alias uvr='uv run'
+alias uvrm='uv remove'
+alias uvs='uv sync'
+alias uvsr='uv sync --refresh'
+alias uvsu='uv sync --upgrade'
+alias uvup='uv self update'
+alias uvv='uv venv'
