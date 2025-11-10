@@ -13,9 +13,9 @@ CURRENT_MONITOR=$(echo "$MONITORS" | jq -r --argjson x "$CURSOR_X" '.[] | select
 
 # Launch appropriate config based on monitor
 if [ "$CURRENT_MONITOR" = "DP-1" ]; then
-    # Small monitor - use large font
-    exec ghostty --config="$HOME/.config/ghostty/config-large"
+    # Small monitor - use large font (24)
+    exec ghostty --font-size=24
 else
-    # Large monitor or fallback - use default font
-    exec ghostty --config="$HOME/.config/ghostty/config"
+    # Large monitor or fallback - use default font (14)
+    exec ghostty --font-size=14
 fi
